@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo en clase brandon</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <style>
+        h1 {
+            color: rgb(193, 17, 17);
+            margin-top: 10vh;
+            text-align: center;
+        }
+
+        p {
+            color: white;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            background-color: rgb(138, 128, 128);
+        }
+
+        #titulo {
+            text-align: center;
+        }
+        h5{
+            color: rgb(0, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="mb-5" id="titulo">Personajes Favoritos</h1>
+        <div id="Personajes" class="row">
+
+        </div>
+    </div>
+
+    <script>
+        const PersonajesFavoritos = [
+            { nombre: "goku", tipo: "personaje", profesion: "peleador", deporte: "una ves jugo baseball"},
+            { nombre: "Naruto", tipo: "Personaje", profesion: "Ninja", deporte: "Correr"},
+            { nombre: "Saitama", tipo: "Personaje", profesion: "Heroe", deporte: "Correr"},
+            { nombre: "SpongeBob", tipo: "Personaje", profesion: "Cocinero", deporte: "Jellyfishing"},
+            { nombre: "Bob Esponja", tipo: "Personaje", profesion: "Cocinero", deporte: "Jellyfishing"},
+            { nombre: "DuoLingo", tipo: "Personaje", profesion: "Teacher", deporte: "Yo creo que si hace"},
+            { nombre: "Kyrie Irving", tipo: "Deportista", profesion: "Deportista jaja", deporte: "Basketball"},
+            { nombre: "Tokisha", tipo: "Artista", profesion: "Cantante", deporte: "Gym o saber"},
+            { nombre: "Melissa Vargas", tipo: "Deportista", profesion: "Deportista", deporte: "Volley omg"},
+            { nombre: "stephen hawking", tipo: "Ni idea", profesion: "Profesor o matematico", deporte: "yo creo que si hacia deporte"},
+            { nombre: "Cars", tipo: "Pelicula", profesion: "Carreras", deporte: "Carreras era el mcquee"},
+            { nombre: "Santa", tipo: "Asaber", profesion: "Dar regalos", deporte: "Maneja"},
+            { nombre: "Shek", tipo: "Artista", profesion: "Hace polipeliculas", deporte: "Casar princesas"},
+            { nombre: "El que hizo spotify", tipo: "Programador", profesion: "Programadors", deporte: "yo creo que no hace"},
+            { nombre: "DuoLingo", tipo: "Personaje", profesion: "Teacher", deporte: "Yo creo que si hace"},
+            { nombre: "Kyrie Irving", tipo: "Deportista", profesion: "Deportista jaja", deporte: "Basketball"},
+            { nombre: "Tokisha", tipo: "Artista", profesion: "Cantante", deporte: "Gym o saber"},
+            { nombre: "Melissa Vargas", tipo: "Deportista", profesion: "Deportista", deporte: "Volley omg"},
+            { nombre: "stephen hawking", tipo: "Ni idea", profesion: "Profesor o matematico", deporte: "yo creo que si hacia deporte"},
+            { nombre: "Cars", tipo: "Pelicula", profesion: "Carreras", deporte: "Carreras era el mcquee"},
+            { nombre: "Santa", tipo: "Asaber", profesion: "Dar regalos", deporte: "Maneja"},
+            { nombre: "Shek", tipo: "Artista", profesion: "Hace polipeliculas", deporte: "Casar princesas"},
+            { nombre: "El que hizo spotify", tipo: "Programador", profesion: "Programadors", deporte: "yo creo que no hace"}
+        ];
+
+
+        function MostrarPersonajes() {
+            const contenedor = document.getElementById("Personajes");
+
+            PersonajesFavoritos.forEach(persona => {
+                const card = document.createElement("div");
+                card.classList.add("col-12");
+
+                card.innerHTML = `
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">${persona.nombre}</h5>
+            <p class="card-text">Tipo: ${persona.tipo}</p>
+            ${persona.profesion ? `<p class="card-text">Profesion: ${persona.profesion}</p>` : ""}
+            ${persona.deporte ? `<p class="card-text">Deporte: ${persona.deporte}</p>` : ""}
+          </div>
+        </div>
+      `;
+
+                contenedor.appendChild(card);
+            });
+        }
+
+
+        document.addEventListener("DOMContentLoaded", MostrarPersonajes);
+    </script>
+
+
+
+<script>
+  //reduce: El método reduce() se utiliza para reducir los elementos de un array a un solo valor.
+  // Toma una función como argumento que se ejecuta en cada elemento del array y acumula un 
+  //resultado. El resultado final es el valor acumulado después de procesar todos los elementos. 
+  //Ejemplo: Supongamos que tenemos un array de números [10, 20, 30, 40] y queremos obtener la suma 
+  //de todos los elementos:  
+const numeros = [10, 20, 30, 40];
+const sumaTotal = numeros.reduce((acumulador, numero) => acumulador + numero, 0);
+
+console.log(sumaTotal); // Resultado: 100
+
+
+//filter: El método filter() crea un nuevo array con todos los elementos que pasan una condición 
+//especificada. La función de filtro se ejecuta en cada elemento del array y devuelve true o false. 
+//Ejemplo: Supongamos que tenemos un array de edades [25, 18, 30, 15, 22] y queremos obtener 
+//un nuevo array con las edades mayores o iguales a 18:
+
+const edades = [25, 18, 30, 15, 22];
+const edadesMayores = edades.filter((edad) => edad >= 18);
+
+console.log(edadesMayores); // Resultado: [25, 18, 30, 22]
+
+
+
+</script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

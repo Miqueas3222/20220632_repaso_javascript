@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos de COVID-19</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-3">Datos de COVID-19</h1>
+        <div id="covid-data" class="mt-4"></div>
+    </div>
+
+   
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        async function obtenerDatosCOVID() {
+            try {
+                const response = await fetch('https://api.covidtracking.com/v1/us/current.json');
+                const data = await response.json();
+
+                // Lógica para mostrar los datos de COVID-19 en la página
+                const covidDataContainer = document.getElementById('covid-data');
+                const covidData = `
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Datos de COVID-19 en Estados Unidos</h5>
+                            <p class="card-text">Casos confirmados: ${data[0].positive || 'N/A'}</p>
+                            <p class="card-text">Fallecimientos: ${data[0].death || 'N/A'}</p>
+                            <p class="card-text">Casos recuperados: ${data[0].recovered || 'N/A'}</p>
+                            <p class="card-text">Hospitalizaciones: ${data[0].hospitalized || 'N/A'}</p>
+                            <p class="card-text">Actualizado el: ${new Date(data[0].lastModified).toLocaleString() || 'N/A'}</p>
+                        </div>
+                    </div>
+                `;
+                covidDataContainer.innerHTML = covidData;
+            } catch (error) {
+                console.error('Error al obtener la información de COVID-19:', error);
+            }
+        }
+
+        // Llamar a la función para obtener los datos de COVID-19 cuando se cargue la página
+        obtenerDatosCOVID();
+    </script>
+</body>
+</html>
